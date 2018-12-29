@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8;">
+<title>图片+图片上的说明信息</title>
+<meta name="author" content="rainna" />
+<meta name="keywords" content="rainna's css lib" />
+<meta name="description" content="CSS3" />
+<style>
+*{margin:0;padding:0;}
+body{background:#f0f0f0;font-family:'Microsoft Yahei';}
+
+.m-pics{width:500px;margin:100px auto;padding:50px;background:#fff;}
+.m-pics .item{position:relative;margin:0 0 20px;}
+.m-pics .pic img{display:block;}
+.m-pics .intro,.m-pics .icon,.m-pics .txt{position:absolute;}
+.m-pics .icon span{position:absolute;z-index:3;width:15px;height:15px;border-radius:15px;background:#fff;}
+.m-pics .icon:before,.m-pics .icon:after{content:'';position:absolute;left:-3px;top:-3px;z-index:2;width:21px;height:21px;background:rgba(255,255,255,0.8);border-radius:21px;}
+.m-pics .icon:after{left:-5px;top:-5px;z-index:1;width:25px;height:25px;background:rgba(0,0,0,.5);border-radius:25px;}
+.m-pics .txt{left:45px;top:-55px;padding:0 15px;border-bottom:1px solid #fff;color:#fff;font-size:14px;line-height:26px;white-space:nowrap;}
+.m-pics .txt:before{content:'';position:absolute;left:-34px;top:40px;width:40px;height:1px;background:#fff;-webkit-transform:rotate(-45deg);}
+.m-pics .txt:nth-child(2){top:15px;}
+.m-pics .txt:nth-child(2)::before{top:12px;-webkit-transform:rotate(45deg);}
+.m-pics .txt:nth-child(3){left:auto;right:30px;}
+.m-pics .txt:nth-child(3)::before{left:auto;right:-34px;-webkit-transform:rotate(45deg);}
+.m-pics .txt:nth-child(4){left:auto;right:30px;top:15px;}
+.m-pics .txt:nth-child(4)::before{left:auto;right:-34px;top:12px;}
+
+.m-pics .intro .icon{-webkit-animation:lazyload 1s;}
+.m-pics .intro .txt{-webkit-animation:lazyload2 1s;}
+.m-pics .intro .txt:nth-child(2){-webkit-animation:lazyload2 2s;}
+.m-pics .intro .txt:nth-child(3){-webkit-animation:lazyload2 3s;}
+.m-pics .intro .txt:nth-child(4){-webkit-animation:lazyload2 4s;}
+.m-pics .icon:before{-webkit-animation:bling 1s infinite;}
+.m-pics .icon span{-webkit-animation:bling2 1s infinite;}
+@-webkit-keyframes lazyload{
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+@-webkit-keyframes lazyload2{
+	0%,40%{opacity:0;}
+	100%{opacity:1;}
+}
+@-webkit-keyframes bling{
+	0%{opacity:1;}
+	100%{opacity:0;-webkit-transform:scale(3);}
+}
+@-webkit-keyframes bling2{
+	0%{}
+	100%{-webkit-transform:scale(0.8);}
+}
+</style>
+</head>
+
+<body>
+<div class="m-pics">
+	<div class="item">
+		<div class="pic"><img width="500" src="http://o4.xiaohongshu.com/discovery/w640/1f3c7e8e89f67a9c47fa40fe620524a7_640_640_92.jpg" /></div>
+		<div class="intro" style="left:320px;top:420px;">
+			<div class="txt">花王碧柔防晒霜</div>
+			<div class="txt">日本</div>
+			<div class="txt">50人名币</div>
+			<div class="txt">50ML</div>
+			<div class="icon"><span></span></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

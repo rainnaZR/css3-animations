@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8;">
+<title>CSS3效果之会呼吸的信封</title>
+<meta name="author" content="rainna" />
+<meta name="keywords" content="rainna's css lib" />
+<meta name="description" content="CSS3" />
+<style>
+*{margin:0;padding:0;}
+body{background:#f0f0f0;}
+.m-intro{width:800px;margin:0 auto;padding:20px;background:#f7f7f7;}
+.m-intro h2,.m-intro p{margin:0 0 15px;line-height:1.8;}
+
+/* 信封样式1 */
+.m-envelope,.m-envelope2{position:relative;width:602px;height:382px;margin:100px auto;background:#F1F1F1;overflow:hidden;}
+.m-envelope:before,.m-envelope:after{content:'';position:absolute;left:0;top:1px;width:0;height:0;border-left:235px solid #FFFAF7;border-top:190px solid transparent;border-bottom:190px solid transparent;}
+.m-envelope:after{right:0;left:auto;-webkit-transform:rotate(180deg);}
+.m-envelope .item,.m-envelope .item2{position:absolute;left:1px;bottom:0;width:0;height:0;border-bottom:242px solid #FFF7FE;border-left:300px solid transparent;border-right:300px solid transparent;}
+.m-envelope .item2{top:0;bottom:auto;z-index:2;border-top:250px solid #F1F1F1;border-bottom:none;}
+.m-envelope .item2-cover{border-top:246px solid #fff;}
+.m-envelope .item2-cover:before{content:'帮我打开';position:absolute;left:-8px;top:-190px;color:#99c800;line-height:2;font-weight:bold;}
+
+/* 信封封面动画样式1 */
+.m-envelope .item2-cover{-webkit-transform-style:preserve-3d;-webkit-perspective:1500;-webkit-transform-origin:0 0;-webkit-animation:breath 1.2s ease infinite alternate;}
+
+@-webkit-keyframes breath{
+	100%{-webkit-transform:rotateX(20deg);}
+}
+
+
+
+/* 信封样式2 */
+.m-envelope2{background:#fff;}
+.m-envelope2:before,.m-envelope2 .item{content:'';position:absolute;left:0;top:100%;width:422px;height:422px;border-width:2px;border-style:solid;border-color:#F1F1F1 #F1F1F1 transparent transparent;-webkit-transform-origin:left top;-webkit-transform:rotate(-45deg);}
+.m-envelope2 .item{top:0;border-color:transparent transparent #F1F1F1 #F1F1F1;background:#F1F1F1;}
+.m-envelope2 .item-cover{background:#fff;}
+
+/* 信封封面动画样式2 */
+.m-envelope2 .f-trans{-webkit-transform-style:preserve-3d;-webkit-perspective:1500;-webkit-transform-origin:0 0;-webkit-animation:breath 1.2s ease infinite alternate;}
+</style>
+</head>
+
+<body>
+<div class="m-envelope">
+	<div class="item"></div>
+	<div class="item2"></div>
+	<div class="item2 item2-cover"></div>
+</div>
+
+<div class="m-envelope2">
+	<div class="item"></div>
+	<div class="f-trans">
+		<div class="item item-cover"></div>
+	</div>
+</div>
+
+<div class="m-intro">
+	<a href="http://www.cnblogs.com/zourong/p/4229497.html" target="_blank">原文链接</a>
+	<p>新年已经到来,各个网站都举办着各种不同类型的活动,'会呼吸的信封'有可能就是你遇到的其中一种.其实就是一个信封的样式,在封口处加上开合开合的动画效果,吸引用户去打开这个信封,点击后可能会送红包,优惠券或介绍其他相关的活动内容.</p>
+	<p>动画原理非常简单:先写出信封的样式,然后将封口处的元素使用rotateX旋转。这其中用到的技术就是3D transform的运用。</p>
+	<p>2.1写出信封的样式。<br />利用样式实现三角形的形状一般有两种做法：一是使用边框，二是使用方形的元素旋转。第一种办法灵活性好，宽高灵活设置。<br />2.2对封面的元素定义动画。<br />封面的元素也为三角形形状，一开一合的效果其实就是元素绕着X轴旋转。使用3D的transform效果设置如下：<br />-webkit-transform-style:preserve-3d;-webkit-perspective:1500;-webkit-transform-origin:0 0;<br />具体的属性说明参考如下：<a href="http://www.w3school.com.cn/css3/css3_3dtransform.asp" target="_blank">http://www.w3school.com.cn/css3/css3_3dtransform.asp</a><br />动画的设置如下：-webkit-animation:breath 1.2s ease infinite alternate;<br />体的属性说明参考如下：<a href="http://www.w3school.com.cn/cssref/pr_animation.asp" target="_blank">http://www.w3school.com.cn/cssref/pr_animation.asp</a></p>
+</div>
+</body>
+</html>
